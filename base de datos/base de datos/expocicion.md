@@ -4,11 +4,11 @@
 
 | Expositor | Tema Asignado |
 |-----------|---------------|
-| **Expositor 1** | Introducción + Estructura de tablas (Módulos 1 al 4) |
-| **Expositor 2** | Estructura de tablas (Módulos 5 al 8) + Diagrama de relaciones |
-| **Expositor 3** | Procedimientos de inserción (INSERT) y relevancia de los datos |
-| **Expositor 4** | Procedimientos de actualización (UPDATE) y borrado (DELETE) |
-| **Expositor 5** | 10 Consultas SELECT con operadores avanzados + Conclusión |
+| **ashley xiomara** | Introducción + Estructura de tablas (Módulos 1 al 4) |
+| **sebastian parada** | Estructura de tablas (Módulos 5 al 8) + Diagrama de relaciones |
+| **todos** | Procedimientos de inserción (INSERT) y relevancia de los datos |
+| **jose chico y david lopez** | Procedimientos de actualización (UPDATE) y borrado (DELETE) |
+| **maicol mayor** | 10 Consultas SELECT con operadores avanzados + Conclusión |
 
 ---
 
