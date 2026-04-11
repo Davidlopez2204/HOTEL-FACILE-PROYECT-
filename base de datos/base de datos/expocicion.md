@@ -38,7 +38,7 @@ Los 8 módulos son:
 | Columna     | Tipo de Dato  | Restricción                  |
 |-------------|---------------|------------------------------|
 | id          | INT           | PRIMARY KEY, AUTO_INCREMENT  |
-| nombre      | VARCHAR(50)   | NOT NULL, UNIQUE             |
+| nombre_rol  | VARCHAR(50)   | NOT NULL, UNIQUE             |
 | descripcion | TEXT          | —                            |
 
 - **Llave primaria:** `id`
