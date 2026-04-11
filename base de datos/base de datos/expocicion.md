@@ -14,7 +14,7 @@
 
 ---
 
-# 👤 EXPOSITOR 1 — Introducción + Estructura de Tablas (Módulos 1 al 4)
+# 👤 ashley xiomara — Introducción + Estructura de Tablas (Módulos 1 al 4)
 
 ## INTRODUCCIÓN
 
@@ -145,7 +145,7 @@ Los 8 módulos son:
 
 - **Llave primaria:** `id`
 - **Llaves foráneas:** Ninguna
-- **Importancia:** Clasifica las habitaciones por tipo (individual, doble, suite, presidencial). Es esencial para asignar tarifas diferenciadas y para que el cliente pueda elegir según sus necesidades.
+- **Importancia:** Clasifica las habitaciones por tipo (habitacion, sencilla, duplex, familiar). Es esencial para asignar tarifas diferenciadas y para que el cliente pueda elegir según sus necesidades.
 
 ---
 
@@ -250,7 +250,7 @@ Los 8 módulos son:
 
 ---
 
-# 👤 EXPOSITOR 2 — Estructura de Tablas (Módulos 5 al 8) + Diagrama de Relaciones
+# 👤 sebastian parada — Estructura de Tablas (Módulos 5 al 8) + Diagrama de Relaciones
 
 ## MÓDULO 5: LIMPIEZA
 
@@ -433,7 +433,7 @@ usuario ─────────── auditoria
 
 ---
 
-# 👤 EXPOSITOR 3 — Procedimientos de Inserción (INSERT) y Relevancia
+# 👤 TODOS — Procedimientos de Inserción (INSERT) y Relevancia
 
 ## ¿Qué es un INSERT?
 
@@ -619,7 +619,7 @@ INSERT INTO auditoria (usuario_id, accion, entidad, entidad_id, detalle, ip_addr
 
 ---
 
-# 👤 EXPOSITOR 4 — Procedimientos de Actualización (UPDATE) y Borrado (DELETE)
+# 👤 Jose chico y david lopez  — Procedimientos de Actualización (UPDATE) y Borrado (DELETE)
 
 ## ACTUALIZACIONES (UPDATE)
 
@@ -730,7 +730,7 @@ DELETE FROM configuracion WHERE clave = 'max_reservas_dia';
 
 ---
 
-# 👤 EXPOSITOR 5 — 10 Consultas SELECT con Operadores Avanzados + Conclusión
+# 👤 maicol mayor — 10 Consultas SELECT con Operadores Avanzados + Conclusión
 
 ## ¿Qué son los operadores avanzados?
 
