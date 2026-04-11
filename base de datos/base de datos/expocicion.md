@@ -531,11 +531,11 @@ INSERT INTO habitacion (numero, piso, capacidad, descripcion,
 ### 3.7 Inserción de Tarifas
 ```sql
 INSERT INTO tarifa (temporadas, precio, fecha_inicio, fecha_fin, tipo_unidad_id) VALUES
-('Temporada Baja', 50.00, '2026-01-01', '2026-03-31', 1),
-('Temporada Baja', 80.00, '2026-01-01', '2026-03-31', 2),
-('Temporada Alta', 120.00, '2026-07-01', '2026-09-30', 3),
-('Temporada Alta', 250.00, '2026-07-01', '2026-09-30', 4),
-('Temporada Media', 100.00, '2026-04-01', '2026-06-30', 5);
+('Temporada Baja', 200000.00, '2026-01-01', '2026-03-31', 1),
+('Temporada Baja', 800000.00, '2026-01-01', '2026-03-31', 2),
+('Temporada Alta', 1200000.00, '2026-07-01', '2026-09-30', 3),
+('Temporada Alta', 2500000.00, '2026-07-01', '2026-09-30', 4),
+('Temporada Media', 1000000.00, '2026-04-01', '2026-06-30', 5);
 ```
 **Relevancia:** Se definen 5 tarifas que combinan temporada + tipo de habitación. Por ejemplo, una Suite en temporada alta cuesta $120/noche mientras que una Individual en temporada baja cuesta $50/noche.
 
@@ -665,9 +665,9 @@ UPDATE usuario SET activo = FALSE WHERE id = 3;
 
 ### UPDATE 5: Actualizar precio de una tarifa por inflación
 ```sql
-UPDATE tarifa SET precio = 65.00 WHERE id = 1;
+UPDATE tarifa SET precio = 350000.00 WHERE id = 1;
 ```
-**¿Por qué se ejecuta?** La tarifa de "Temporada Baja" para habitaciones individuales subió de $50.00 a $65.00 debido a la inflación o ajustes de mercado. **Es necesario** actualizar el precio para que las nuevas reservas se facturen con la tarifa correcta. Las reservas ya existentes mantienen la tarifa con la que se crearon.
+**¿Por qué se ejecuta?** La tarifa de "Temporada Baja" para habitaciones individuales subió de $250000.00 a $350000.00 debido a la inflación o ajustes de mercado. **Es necesario** actualizar el precio para que las nuevas reservas se facturen con la tarifa correcta. Las reservas ya existentes mantienen la tarifa con la que se crearon.
 
 ---
 
