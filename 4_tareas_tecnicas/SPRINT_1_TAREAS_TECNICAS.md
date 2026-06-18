@@ -14,7 +14,6 @@ En el sistema existirán los siguientes roles:
 - `RECEPCIONISTA`
 - `AMA_LLAVES`
 - `MANTENIMIENTO`
-- `CONSERJE`
 
 Por defecto, todo usuario registrado tendrá el rol `RECEPCIONISTA`.
 
