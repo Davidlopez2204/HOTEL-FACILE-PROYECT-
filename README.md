@@ -1,5 +1,4 @@
 # HOTEL-FACILE-PROYECT-   
-# HOTEL-FACILE-PROYECT
 
 ## Descripción del proyecto
 
