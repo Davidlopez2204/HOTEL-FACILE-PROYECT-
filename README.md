@@ -34,10 +34,10 @@ Desarrollar una plataforma web que permita gestionar de manera eficiente las res
 
 ## Tecnologías Utilizadas
 
-* HTML5
-* CSS3
-* JavaScript
-* MySQL
+* react
+* fastapi
+* postgres
+* docker
 * Git
 * GitHub
 
