@@ -58,13 +58,13 @@ Los roles con acceso completo al panel serán `ADMINISTRADOR` y `RECEPCIONISTA`.
 
 | ID | Historia de Usuario | Prioridad | Puntos | Sprint |
 |----|---------------------|-----------|--------|--------|
-| HU01 | Registrar Usuario | Alta | 13 | Sprint 1 |
+| HU01 | Registrar Usuario | Alta | 5 | Sprint 1 |
 | HU02 | Iniciar Sesión | Alta | 13 | Sprint 1 |
 | HU03 | Consultar Usuarios | Alta | 8 | Sprint 1 |
 | HU04 | Consultar Usuario Específico | Media | 5 | Sprint 1 |
 | HU05 | Cerrar Sesión | Media | 3 | Sprint 1 |
 
-**Total Sprint 1: 42 Story Points**
+**Total Sprint 1: 34 Story Points**
 
 ---
 
@@ -86,12 +86,12 @@ Construir el módulo de autenticación y administración básica de usuarios int
 
 ### HU01 — Registrar Usuario
 
-**Prioridad:** Alta · **Puntos:** 13 · **Sprint:** 1
+**Prioridad:** Alta · **Puntos:** 5 · **Sprint:** 1
 
 **Historia:**
-> Como administrador de Apartamentos Facile
+> Como administrador o recepcionista de Apartamentos Facile
 > quiero registrar usuarios dentro del sistema BookingSoft
-> para permitir la gestión del personal del hotel.
+> para permitir la gestión del personal del hotel (recepcionistas, ama de llaves, mantenimiento) y de los huéspedes que se hospedan en Facile.
 
 **Criterios de Aceptación:**
 - Debe registrar tipo de documento (CC, CE, Pasaporte u otro)
@@ -123,7 +123,7 @@ Construir el módulo de autenticación y administración básica de usuarios int
 **Criterios de Aceptación:**
 - Validar formato de correo electrónico
 - Validar que la contraseña coincide con el hash almacenado
-- Permitir acceso a todos los roles registrados, mostrando solo los módulos del rol correspondiente
+- Permitir acceso completo al panel a roles ADMINISTRADOR y RECEPCIONISTA; AMA_LLAVES tendrá acceso solo al estado de unidades; MANTENIMIENTO tendrá acceso solo a órdenes de mantenimiento
 - Bloquear acceso si el usuario está INACTIVO
 - Bloquear la cuenta 10 minutos tras 5 intentos fallidos consecutivos
 - Retornar token JWT con el rol del usuario al autenticarse exitosamente
@@ -154,14 +154,15 @@ Construir el módulo de autenticación y administración básica de usuarios int
 **Prioridad:** Media · **Puntos:** 5 · **Sprint:** 1
 
 **Historia:**
-> Como administrador de Apartamentos Facile
-> quiero consultar los datos completos de un usuario específico
-> para verificar su información antes de realizar cualquier modificación.
+> Como Administrador o Recepcionista de Apartamentos Facile
+> quiero consultar la información detallada de un usuario específico ingresando su número de documento
+> para verificar de manera rápida y precisa sus datos personales, rol asignado y estado dentro del hotel.
 
 **Criterios de Aceptación:**
-- Mostrar: documento, nombre, correo, rol, estado, teléfono y dirección
-- Consultar por número de documento o ID del usuario
-- Mostrar mensaje claro si el usuario no existe en el sistema
+- Debe permitir buscar al usuario ingresando el número de documento de identidad en el buscador
+- Si el usuario existe, debe mostrar toda su información detallada: tipo de documento, número de documento, nombres, apellidos, fecha de nacimiento, sexo, dirección, teléfono / WhatsApp, correo electrónico, rol y estado
+- Si el usuario no existe, debe mostrar un mensaje claro indicando "Usuario no encontrado"
+- El acceso debe estar restringido a usuarios autenticados con roles Administrador o Recepcionista
 
 ---
 
@@ -223,7 +224,7 @@ CREATE TABLE intentos_login (
 - `numero_documento` — UNIQUE: no puede haber dos empleados con el mismo documento
 - `correo` — UNIQUE: no puede haber dos cuentas con el mismo correo
 - `password` — almacena únicamente el hash bcrypt, nunca texto plano
-- `rol` — valores permitidos: ADMINISTRADOR, RECEPCIONISTA, AMA_LLAVES, MANTENIMIENTO, CONSERJE
+- `rol` — valores permitidos: ADMINISTRADOR, RECEPCIONISTA, AMA_LLAVES, MANTENIMIENTO
 - `estado` — TRUE = activo, FALSE = inactivo (no puede iniciar sesión)
 - `primer_acceso` — TRUE obliga al cambio de contraseña en el primer login
 - `bloqueado_hasta` — registra el tiempo de bloqueo tras 5 intentos fallidos
