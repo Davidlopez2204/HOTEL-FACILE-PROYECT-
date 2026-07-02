@@ -14,7 +14,7 @@ def crear_habitacion(datos: HabitacionSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Habitacion creada ✅", "habitacion": nuevo}
+    return {"mensaje": "Habitacion creada", "habitacion": nuevo}
 
 @router.get("/habitaciones")
 def listar_habitaciones(db: Session = Depends(get_db)):
@@ -30,7 +30,7 @@ def actualizar_habitacion(id: int, datos: HabitacionSchema, db: Session = Depend
     habitacion.descripcion = datos.descripcion
     habitacion.estado_unidad_id = datos.estado_unidad_id
     db.commit()
-    return {"mensaje": "Habitacion actualizada ✅"}
+    return {"mensaje": "Habitacion actualizada"}
 
 @router.delete("/habitaciones/{id}")
 def eliminar_habitacion(id: int, db: Session = Depends(get_db)):
@@ -39,4 +39,4 @@ def eliminar_habitacion(id: int, db: Session = Depends(get_db)):
         return {"error": "Habitacion no encontrada"}
     db.delete(habitacion)
     db.commit()
-    return {"mensaje": "Habitacion eliminada ✅"}
+    return {"mensaje": "Habitacion eliminada"}
