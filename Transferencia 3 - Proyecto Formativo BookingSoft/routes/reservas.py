@@ -15,7 +15,7 @@ def crear_reserva(datos: ReservaSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Reserva creada ✅", "reserva": nuevo}
+    return {"mensaje": "Reserva creada", "reserva": nuevo}
 
 @router.get("/reservas")
 def listar_reservas(db: Session = Depends(get_db)):
@@ -31,7 +31,7 @@ def actualizar_reserva(id: int, datos: ReservaSchema, db: Session = Depends(get_
     reserva.observaciones = datos.observaciones
     reserva.estado_reserva_id = datos.estado_reserva_id
     db.commit()
-    return {"mensaje": "Reserva actualizada ✅"}
+    return {"mensaje": "Reserva actualizada"}
 
 @router.delete("/reservas/{id}")
 def eliminar_reserva(id: int, db: Session = Depends(get_db)):
@@ -40,4 +40,4 @@ def eliminar_reserva(id: int, db: Session = Depends(get_db)):
         return {"error": "Reserva no encontrada"}
     db.delete(reserva)
     db.commit()
-    return {"mensaje": "Reserva eliminada ✅"}
+    return {"mensaje": "Reserva eliminada"}
