@@ -15,7 +15,7 @@ def crear_evento(datos: EventoSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Evento creado ✅", "evento": nuevo}
+    return {"mensaje": "Evento creado ", "evento": nuevo}
 
 @router.get("/eventos")
 def listar_eventos(db: Session = Depends(get_db)):
@@ -32,7 +32,7 @@ def actualizar_evento(id: int, datos: EventoSchema, db: Session = Depends(get_db
     evento.precio = datos.precio
     evento.estado_evento_id = datos.estado_evento_id
     db.commit()
-    return {"mensaje": "Evento actualizado ✅"}
+    return {"mensaje": "Evento actualizado "}
 
 @router.delete("/eventos/{id}")
 def eliminar_evento(id: int, db: Session = Depends(get_db)):
@@ -41,4 +41,4 @@ def eliminar_evento(id: int, db: Session = Depends(get_db)):
         return {"error": "Evento no encontrado"}
     db.delete(evento)
     db.commit()
-    return {"mensaje": "Evento eliminado ✅"}
+    return {"mensaje": "Evento eliminado "}
