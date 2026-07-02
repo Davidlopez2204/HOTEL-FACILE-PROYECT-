@@ -13,7 +13,7 @@ def crear_factura(datos: FacturaSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Factura creada ✅", "factura": nuevo}
+    return {"mensaje": "Factura creada", "factura": nuevo}
 
 @router.get("/facturas")
 def listar_facturas(db: Session = Depends(get_db)):
@@ -27,7 +27,7 @@ def actualizar_factura(id: int, datos: FacturaSchema, db: Session = Depends(get_
     factura.descuento = datos.descuento
     factura.total = datos.total
     db.commit()
-    return {"mensaje": "Factura actualizada ✅"}
+    return {"mensaje": "Factura actualizada"}
 
 @router.delete("/facturas/{id}")
 def eliminar_factura(id: int, db: Session = Depends(get_db)):
@@ -36,4 +36,4 @@ def eliminar_factura(id: int, db: Session = Depends(get_db)):
         return {"error": "Factura no encontrada"}
     db.delete(factura)
     db.commit()
-    return {"mensaje": "Factura eliminada ✅"}
+    return {"mensaje": "Factura eliminada"}
