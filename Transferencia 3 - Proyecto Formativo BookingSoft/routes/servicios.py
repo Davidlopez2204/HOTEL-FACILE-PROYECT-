@@ -13,7 +13,7 @@ def crear_servicio(datos: ServicioSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Servicio creado ✅", "servicio": nuevo}
+    return {"mensaje": "Servicio creado", "servicio": nuevo}
 
 @router.get("/servicios")
 def listar_servicios(db: Session = Depends(get_db)):
@@ -28,7 +28,7 @@ def actualizar_servicio(id: int, datos: ServicioSchema, db: Session = Depends(ge
     servicio.precio_base = datos.precio_base
     servicio.activo = datos.activo
     db.commit()
-    return {"mensaje": "Servicio actualizado ✅"}
+    return {"mensaje": "Servicio actualizado"}
 
 @router.delete("/servicios/{id}")
 def eliminar_servicio(id: int, db: Session = Depends(get_db)):
@@ -37,4 +37,4 @@ def eliminar_servicio(id: int, db: Session = Depends(get_db)):
         return {"error": "Servicio no encontrado"}
     db.delete(servicio)
     db.commit()
-    return {"mensaje": "Servicio eliminado ✅"}
+    return {"mensaje": "Servicio eliminado"}
