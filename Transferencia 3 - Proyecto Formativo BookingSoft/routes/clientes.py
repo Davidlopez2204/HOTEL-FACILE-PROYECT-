@@ -14,7 +14,7 @@ def crear_cliente(datos: ClienteSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Cliente creado ✅", "cliente": nuevo}
+    return {"mensaje": "Cliente creado ", "cliente": nuevo}
 
 @router.get("/clientes")
 def listar_clientes(db: Session = Depends(get_db)):
@@ -30,7 +30,7 @@ def actualizar_cliente(id: int, datos: ClienteSchema, db: Session = Depends(get_
     cliente.telefono = datos.telefono
     cliente.email = datos.email
     db.commit()
-    return {"mensaje": "Cliente actualizado ✅"}
+    return {"mensaje": "Cliente actualizado "}
 
 @router.delete("/clientes/{id}")
 def eliminar_cliente(id: int, db: Session = Depends(get_db)):
@@ -39,4 +39,4 @@ def eliminar_cliente(id: int, db: Session = Depends(get_db)):
         return {"error": "Cliente no encontrado"}
     db.delete(cliente)
     db.commit()
-    return {"mensaje": "Cliente eliminado ✅"}
+    return {"mensaje": "Cliente eliminado "}
