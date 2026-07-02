@@ -13,7 +13,7 @@ def crear_usuario(datos: UsuarioSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Usuario creado ✅", "usuario": nuevo}
+    return {"mensaje": "Usuario creado", "usuario": nuevo}
 
 @router.get("/usuarios")
 def listar_usuarios(db: Session = Depends(get_db)):
@@ -29,7 +29,7 @@ def actualizar_usuario(id: int, datos: UsuarioSchema, db: Session = Depends(get_
     usuario.email = datos.email
     usuario.rol_id = datos.rol_id
     db.commit()
-    return {"mensaje": "Usuario actualizado ✅"}
+    return {"mensaje": "Usuario actualizado"}
 
 @router.delete("/usuarios/{id}")
 def eliminar_usuario(id: int, db: Session = Depends(get_db)):
@@ -38,4 +38,4 @@ def eliminar_usuario(id: int, db: Session = Depends(get_db)):
         return {"error": "Usuario no encontrado"}
     db.delete(usuario)
     db.commit()
-    return {"mensaje": "Usuario eliminado ✅"}
+    return {"mensaje": "Usuario eliminado"}
