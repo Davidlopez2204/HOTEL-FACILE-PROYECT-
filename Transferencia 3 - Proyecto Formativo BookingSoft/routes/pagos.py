@@ -14,7 +14,7 @@ def crear_pago(datos: PagoSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Pago creado ✅", "pago": nuevo}
+    return {"mensaje": "Pago creado", "pago": nuevo}
 
 @router.get("/pagos")
 def listar_pagos(db: Session = Depends(get_db)):
@@ -29,7 +29,7 @@ def actualizar_pago(id: int, datos: PagoSchema, db: Session = Depends(get_db)):
     pago.estado_pago = datos.estado_pago
     pago.tipo_pago = datos.tipo_pago
     db.commit()
-    return {"mensaje": "Pago actualizado ✅"}
+    return {"mensaje": "Pago actualizado"}
 
 @router.delete("/pagos/{id}")
 def eliminar_pago(id: int, db: Session = Depends(get_db)):
@@ -38,4 +38,4 @@ def eliminar_pago(id: int, db: Session = Depends(get_db)):
         return {"error": "Pago no encontrado"}
     db.delete(pago)
     db.commit()
-    return {"mensaje": "Pago eliminado ✅"}
+    return {"mensaje": "Pago eliminado"}
