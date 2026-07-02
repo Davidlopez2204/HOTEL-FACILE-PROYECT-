@@ -12,7 +12,7 @@ def crear_rol(datos: RolSchema, db: Session = Depends(get_db)):
     db.add(nuevo)
     db.commit()
     db.refresh(nuevo)
-    return {"mensaje": "Rol creado ✅", "rol": nuevo}
+    return {"mensaje": "Rol creado", "rol": nuevo}
 
 @router.get("/roles")
 def listar_roles(db: Session = Depends(get_db)):
@@ -24,7 +24,7 @@ def actualizar_rol(id: int, datos: RolSchema, db: Session = Depends(get_db)):
     rol.nombre = datos.nombre
     rol.descripcion = datos.descripcion
     db.commit()
-    return {"mensaje": "Rol actualizado ✅"}
+    return {"mensaje": "Rol actualizado"}
 
 @router.delete("/roles/{id}")
 def eliminar_rol(id: int, db: Session = Depends(get_db)):
@@ -33,4 +33,4 @@ def eliminar_rol(id: int, db: Session = Depends(get_db)):
         return {"error": "Rol no encontrado"}
     db.delete(rol)
     db.commit()
-    return {"mensaje": "Rol eliminado ✅"}
+    return {"mensaje": "Rol eliminado"}
